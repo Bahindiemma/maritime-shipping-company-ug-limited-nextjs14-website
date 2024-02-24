@@ -9,12 +9,12 @@ export default function TopBar() {
             <div className="d-inline-flex align-items-center text-white">
               <small>
                 <i className="fa fa-phone-alt mr-2" />
-                +256-773165989
+                039 3254 631 | +256-787326098
               </small>
               <small className="px-3">|</small>
               <small>
                 <i className="fa fa-envelope mr-2" />
-                info@example.com
+                info@maritimeug.com
               </small>
             </div>
           </div>
