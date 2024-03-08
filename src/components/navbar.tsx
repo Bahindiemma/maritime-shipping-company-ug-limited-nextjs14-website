@@ -3,6 +3,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavLinks {
   name: string;
@@ -37,12 +38,20 @@ export default function NavBar() {
   return (
     <>
       <div className="container-fluid p-0">
-        <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+        <nav className="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
           <Link href="/" className="navbar-brand ml-lg-3">
-            <h1 className="m-0 display-5 text-uppercase text-primary">
-              <i className="fa fa-truck mr-2" />
-              Maritime
-            </h1>
+            <span className="d-block m-0 display-5 text-uppercase">
+              {/* <i className="fa fa-truck mr-2" />
+              Maritime */}
+              <Image
+                width="100"
+                height="100"
+                className="w-[60px] height-[60px]"
+                style={{ objectFit: "cover" }}
+                src="/assets/img/logo.png"
+                alt="logo"
+              />
+            </span>
           </Link>
           <button
             type="button"

@@ -16,11 +16,11 @@ export default function Footer() {
                 </p>
                 <p>
                   <i className="fa fa-phone-alt mr-2" />
-                  +256-773165989
+                  039 3254 631 | +256-787326098{" "}
                 </p>
                 <p>
                   <i className="fa fa-envelope mr-2" />
-                  info@example.com
+                  info@maritimeshipping-uganda.com
                 </p>
                 <div className="d-flex justify-content-start mt-4">
                   <a className="btn btn-outline-light btn-social mr-2" href="#">
@@ -52,10 +52,6 @@ export default function Footer() {
                     <i className="fa fa-angle-right mr-2" />
                     Our Services
                   </a>
-                  <a className="text-white mb-2" href="#">
-                    <i className="fa fa-angle-right mr-2" />
-                    Pricing Plan
-                  </a>
                   <a className="text-white" href="#">
                     <i className="fa fa-angle-right mr-2" />
                     Contact Us
@@ -68,10 +64,8 @@ export default function Footer() {
             <h3 className="text-primary mb-4">Newsletter</h3>
             <p>
               Stay ahead of the curve with our Maritime Shipping Company Uganda
-              Limited newsletter! Get exclusive insights into the latest
-              industry trends, valuable shipping tips, updates on our services,
-              and special offers delivered straight to your inbox. Don't miss
-              out – subscribe now and elevate your shipping experience!
+              Limited newsletter! Don't miss out – subscribe now and elevate
+              your shipping experience!
             </p>
             <div className="w-100">
               <div className="input-group">
