@@ -33,7 +33,13 @@ export default function NavBar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // console.log("Pathname: ", pathname);
+  const handleLinkClick = () => {
+    // Close the navbar collapse on mobile devices
+    const collapseElement = document.getElementById("navbarCollapse");
+    if (collapseElement && collapseElement.classList.contains("show")) {
+      collapseElement.classList.remove("show");
+    }
+  };
 
   return (
     <>
@@ -71,6 +77,7 @@ export default function NavBar() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  onClick={handleLinkClick} // Add onClick handler to each Link
                   className={`nav-item nav-link ${
                     pathname === link.href ? "active" : ""
                   }`}
