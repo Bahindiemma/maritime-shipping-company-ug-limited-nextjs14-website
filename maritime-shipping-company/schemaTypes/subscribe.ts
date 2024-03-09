@@ -15,9 +15,6 @@ export default defineType({
       name: "createdAt",
       title: "Created At",
       type: "datetime",
-      options: {
-        isHighlighted: true, // Display in list views
-      },
     }),
   ],
 });
