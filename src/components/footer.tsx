@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import Subscribe from "./subscription-form";
 
 export default function Footer() {
   return (
@@ -22,40 +24,26 @@ export default function Footer() {
                   <i className="fa fa-envelope mr-2" />
                   info@maritimeshipping-uganda.com
                 </p>
-                <div className="d-flex justify-content-start mt-4">
-                  <a className="btn btn-outline-light btn-social mr-2" href="#">
-                    <i className="fab fa-twitter" />
-                  </a>
-                  <a className="btn btn-outline-light btn-social mr-2" href="#">
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                  <a className="btn btn-outline-light btn-social mr-2" href="#">
-                    <i className="fab fa-linkedin-in" />
-                  </a>
-                  <a className="btn btn-outline-light btn-social" href="#">
-                    <i className="fab fa-instagram" />
-                  </a>
-                </div>
               </div>
               <div className="col-md-6 mb-5">
                 <h3 className="text-primary mb-4">Quick Links</h3>
                 <div className="d-flex flex-column justify-content-start">
-                  <a className="text-white mb-2" href="#">
+                  <Link className="text-white mb-2" href="/">
                     <i className="fa fa-angle-right mr-2" />
                     Home
-                  </a>
-                  <a className="text-white mb-2" href="#">
+                  </Link>
+                  <Link className="text-white mb-2" href="/about">
                     <i className="fa fa-angle-right mr-2" />
                     About Us
-                  </a>
-                  <a className="text-white mb-2" href="#">
+                  </Link>
+                  <Link className="text-white mb-2" href="/services">
                     <i className="fa fa-angle-right mr-2" />
                     Our Services
-                  </a>
-                  <a className="text-white" href="#">
+                  </Link>
+                  <Link className="text-white" href="/contact">
                     <i className="fa fa-angle-right mr-2" />
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -63,22 +51,11 @@ export default function Footer() {
           <div className="col-lg-5 col-md-6 mb-5">
             <h3 className="text-primary mb-4">Newsletter</h3>
             <p>
-              Stay ahead of the curve with our Maritime Shipping Company Uganda
-              Limited newsletter! Don't miss out – subscribe now and elevate
-              your shipping experience!
+              Get shipping insights & elevate your experience! Subscribe to
+              Maritime Shipping Company Uganda's newsletter.
             </p>
             <div className="w-100">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control border-light"
-                  style={{ padding: 30 }}
-                  placeholder="Your Email Address"
-                />
-                <div className="input-group-append">
-                  <button className="btn btn-primary px-4">Sign Up</button>
-                </div>
-              </div>
+              <Subscribe />
             </div>
           </div>
         </div>
@@ -91,41 +68,39 @@ export default function Footer() {
           <div className="col-lg-6 text-center text-md-left mb-3 mb-md-0">
             <p className="m-0 text-white">
               © 2024. All Rights Reserved. Designed by
-              <a href="mailto:ebahindi@gmail.com" className="mx-2">
+              <Link href="mailto:ebahindi@gmail.com" className="mx-2">
                 EMMANUEL BAHINDI | +256-773165989
-              </a>
+              </Link>
             </p>
           </div>
           <div className="col-lg-6 text-center text-md-right">
             <ul className="nav d-inline-flex">
               <li className="nav-item">
-                <a className="nav-link text-white py-0" href="#">
+                <Link className="nav-link text-white py-0" href="#">
                   Privacy
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white py-0" href="#">
+                <Link className="nav-link text-white py-0" href="#">
                   Terms
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white py-0" href="#">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="#">
+                <Link
+                  href="mailto:info@maritimeshipping-uganda.com"
+                  className="nav-link text-white py-0"
+                >
                   Help
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
       {/* Footer End */}
-      <a href="#" className="btn btn-lg btn-primary back-to-top">
+      <Link href="#" className="btn btn-lg btn-primary back-to-top">
         <i className="fa fa-angle-double-up" />
-      </a>
+      </Link>
     </>
   );
 }

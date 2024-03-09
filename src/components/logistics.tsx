@@ -1,11 +1,11 @@
 import React from "react";
 import { client, urlFor } from "@/lib/sanity";
 import { LogisticData } from "@/lib/interface";
-import ServiceComponent from "./serviceComponent";
+import Service from "./service";
 
 async function getData() {
   const query = `
-    *[ _type == 'logistic' ] | order(_createdAt desc) {
+    *[ _type == 'logistic' ] | order(_createdAt asc) {
       "currentSlug": slug.current,
       "title": title,
       "author": author->{name},
@@ -28,7 +28,7 @@ export default async function Logistics() {
         <div className="container">
           <div className="row pb-3">
             {data.map((logistic, i) => (
-              <ServiceComponent
+              <Service
                 key={i}
                 url={`services/${logistic.currentSlug}`}
                 imageUrl={urlFor(logistic.mainImage).url()}

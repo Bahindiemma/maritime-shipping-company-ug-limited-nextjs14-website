@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const ServiceComponent = ({
+const Service = ({
   label,
   description,
   url,
@@ -54,4 +54,4 @@ const ServiceComponent = ({
   );
 };
 
-export default ServiceComponent;
+export default Service;

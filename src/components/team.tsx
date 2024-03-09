@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Team() {
   return (
@@ -15,7 +17,7 @@ export default function Team() {
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
+                <Image width="500" height="500"
                   className="card-img-top"
                   src="/assets/img/team-1.jpg"
                   alt=""
@@ -26,34 +28,34 @@ export default function Team() {
                     <span>Designation</span>
                   </div>
                   <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-twitter" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-facebook-f" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in" />
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="#">
+                    </Link>
+                    <Link className="btn btn-outline-dark btn-social" href="#">
                       <i className="fab fa-instagram" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
+                <Image width="500" height="500"
                   className="card-img-top"
                   src="/assets/img/team-2.jpg"
                   alt=""
@@ -64,34 +66,34 @@ export default function Team() {
                     <span>Designation</span>
                   </div>
                   <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-twitter" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-facebook-f" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in" />
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="#">
+                    </Link>
+                    <Link className="btn btn-outline-dark btn-social" href="#">
                       <i className="fab fa-instagram" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
+                <Image width="500" height="500"
                   className="card-img-top"
                   src="/assets/img/team-3.jpg"
                   alt=""
@@ -102,34 +104,34 @@ export default function Team() {
                     <span>Designation</span>
                   </div>
                   <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-twitter" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-facebook-f" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in" />
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="#">
+                    </Link>
+                    <Link className="btn btn-outline-dark btn-social" href="#">
                       <i className="fab fa-instagram" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
+                <Image width="500" height="500"
                   className="card-img-top"
                   src="/assets/img/team-4.jpg"
                   alt=""
@@ -140,27 +142,27 @@ export default function Team() {
                     <span>Designation</span>
                   </div>
                   <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-twitter" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-facebook-f" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="btn btn-outline-dark btn-social mr-2"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in" />
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="#">
+                    </Link>
+                    <Link className="btn btn-outline-dark btn-social" href="#">
                       <i className="fab fa-instagram" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

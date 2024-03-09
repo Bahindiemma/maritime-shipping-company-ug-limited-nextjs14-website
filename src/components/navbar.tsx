@@ -33,12 +33,12 @@ export default function NavBar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  console.log("Pathname: ", pathname);
+  // console.log("Pathname: ", pathname);
 
   return (
     <>
-      <div className="container-fluid p-0">
-        <nav className="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
+      <div className="container-fluid p-0 border-bottom border-dark">
+        <nav className="navbar navbar-expand-lg bg-light navbar-light px-lg-5">
           <Link href="/" className="navbar-brand ml-lg-3">
             <span className="d-block m-0 display-5 text-uppercase">
               {/* <i className="fa fa-truck mr-2" />
@@ -58,6 +58,7 @@ export default function NavBar() {
             className="navbar-toggler"
             data-toggle="collapse"
             data-target="#navbarCollapse"
+            aria-label="Click here to Open the Mobile Memu"
           >
             <span className="navbar-toggler-icon" />
           </button>
@@ -79,7 +80,7 @@ export default function NavBar() {
               ))}
             </div>
             <Link
-              href=""
+              href="/request-quote"
               className="btn btn-primary py-2 px-4 d-none d-lg-block"
             >
               GET A QUOTE

@@ -1,9 +1,40 @@
 import React from "react";
+import { client, urlFor } from "@/lib/sanity";
+import { PostData } from "@/lib/interface";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Blog() {
+async function getPosts() {
+  const query = `
+    *[_type == "post"] | order(_createdAt asc) {
+      "title": title,
+      "currentSlug": slug.current,
+      "author": author->{name},
+      "mainImage": mainImage,
+      "publishedAt": publishedAt,
+      "description": description,
+    }
+  `;
+  const data = await client.fetch(query);
+  return data;
+}
+
+export default async function Blog() {
+  const data: PostData[] = await getPosts();
+  // console.log(data);
+
+  function getFormattedDate(publishedAt: string | Date): string {
+    const date = new Date(publishedAt as string);
+    const options: Intl.DateTimeFormatOptions = {
+      month: "short",
+      year: "numeric",
+      day: "numeric",
+    }; // Include day in options
+    return date.toLocaleDateString("en-US", options);
+  }
+
   return (
     <>
-      {/* Blog Start */}
       <div className="container-fluid pt-5">
         <div className="container">
           <div className="text-center pb-2">
@@ -13,112 +44,63 @@ export default function Blog() {
             <h1 className="mb-4">Latest From Blog</h1>
           </div>
           <div className="row">
-            <div className="col-md-6 mb-5">
-              <div className="position-relative">
-                <img
-                  className="img-fluid w-100"
-                  src="/assets/img/blog-1.jpg"
-                  alt=""
-                />
-                <div
-                  className="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                  style={{ width: 60, height: 60, bottom: "-30px", right: 30 }}
-                >
-                  <h4 className="font-weight-bold mb-n1">01</h4>
-                  <small className="text-white text-uppercase">Jan</small>
-                </div>
-              </div>
-              <div className="bg-secondary" style={{ padding: 30 }}>
-                <div className="d-flex mb-3">
-                  <div className="d-flex align-items-center">
-                    <img
-                      className="rounded-circle"
-                      style={{ width: 40, height: 40 }}
-                      src="/assets/img/user.jpg"
-                      alt=""
-                    />
-                    <a className="text-muted ml-2" href="">
-                      John Doe
-                    </a>
-                  </div>
-                  <div className="d-flex align-items-center ml-4">
-                    <i className="far fa-bookmark text-primary" />
-                    <a className="text-muted ml-2" href="">
-                      Web Design
-                    </a>
+            {data.map((post, i) => (
+              <div key={i} className="col-md-6 mb-5">
+                <div className="position-relative">
+                  <Image
+                    width={500}
+                    height={500}
+                    className="img-fluid w-100"
+                    src={urlFor(post.mainImage).url()}
+                    alt=""
+                  />
+                  <div
+                    className="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                    style={{
+                      width: 60,
+                      height: 60,
+                      bottom: "-30px",
+                      right: 30,
+                    }}
+                  >
+                    {/* <h4 className="font-weight-bold mb-n1">
+                      {new Date(post.publishedAt).getDate()}
+                    </h4> */}
+                    <small style={{fontSize:"12px"}} className="text-white text-uppercase text-center">
+                      {getFormattedDate(post.publishedAt)}
+                    </small>
                   </div>
                 </div>
-                <h4 className="font-weight-bold mb-3">
-                  Kasd tempor diam sea justo dolor
-                </h4>
-                <p>
-                  Dolor sea ipsum ipsum et. Erat duo lorem magna vero dolor
-                  dolores. Rebum eirmod no dolor diam dolor amet ipsum. Lorem
-                  lorem sea sed diam est lorem magna
-                </p>
-                <a
-                  className="border-bottom border-primary text-uppercase text-decoration-none"
-                  href=""
-                >
-                  Read More <i className="fa fa-angle-right" />
-                </a>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5">
-              <div className="position-relative">
-                <img
-                  className="img-fluid w-100"
-                  src="/assets/img/blog-2.jpg"
-                  alt=""
-                />
-                <div
-                  className="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                  style={{ width: 60, height: 60, bottom: "-30px", right: 30 }}
-                >
-                  <h4 className="font-weight-bold mb-n1">01</h4>
-                  <small className="text-white text-uppercase">Jan</small>
+                <div className="bg-secondary" style={{ padding: 30 }}>
+                  <h4 className="font-weight-bold mb-3">{post.title}</h4>
+                  <div
+                    style={{
+                      WebkitLineClamp: "3",
+                      overflow: "hidden",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                    }}
+                  >
+                    {post.description.map((block: any, i: number) => (
+                      <p key={i}>
+                        {block.children.map((child: any, j: number) => (
+                          <span key={j}>{child.text}</span>
+                        ))}
+                      </p>
+                    ))}
+                  </div>
+                  <Link
+                    className="border-bottom border-primary text-uppercase text-decoration-none"
+                    href={`blog/${post.currentSlug}`}
+                    >
+                    Read More <i className="fa fa-angle-right" />
+                  </Link>
                 </div>
               </div>
-              <div className="bg-secondary" style={{ padding: 30 }}>
-                <div className="d-flex mb-3">
-                  <div className="d-flex align-items-center">
-                    <img
-                      className="rounded-circle"
-                      style={{ width: 40, height: 40 }}
-                      src="/assets/img/user.jpg"
-                      alt=""
-                    />
-                    <a className="text-muted ml-2" href="">
-                      John Doe
-                    </a>
-                  </div>
-                  <div className="d-flex align-items-center ml-4">
-                    <i className="far fa-bookmark text-primary" />
-                    <a className="text-muted ml-2" href="">
-                      Web Design
-                    </a>
-                  </div>
-                </div>
-                <h4 className="font-weight-bold mb-3">
-                  Kasd tempor diam sea justo dolor
-                </h4>
-                <p>
-                  Dolor sea ipsum ipsum et. Erat duo lorem magna vero dolor
-                  dolores. Rebum eirmod no dolor diam dolor amet ipsum. Lorem
-                  lorem sea sed diam est lorem magna
-                </p>
-                <a
-                  className="border-bottom border-primary text-uppercase text-decoration-none"
-                  href=""
-                >
-                  Read More <i className="fa fa-angle-right" />
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      {/* Blog End */}
     </>
   );
 }

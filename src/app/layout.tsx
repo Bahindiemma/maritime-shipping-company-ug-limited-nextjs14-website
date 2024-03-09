@@ -9,9 +9,10 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Maritime Shipping Company Uganda Limited",
-  description:
-    "Maritime Shipping Company Uganda Limited - Your trusted partner for comprehensive logistics and shipping solutions in Uganda. Offering reliable freight forwarding, cargo handling, and maritime services. Contact us for efficient and cost-effective shipping solutions.",
+  title: `Maritime Shipping Company - Uganda: Reliable & Efficient Shipping Solutions (20+ Years)`,
+  description: `
+  🇺🇬  Get Competitive Rates & Seamless Logistics from Uganda's Top Shipping Company. We offer International Freight, Ocean Cargo & More! Free Quote Today!
+  `,
 };
 
 export default function RootLayout({
@@ -69,16 +70,15 @@ export default function RootLayout({
           src="/assets/lib/counterup/counterup.min.js"
         />
         <Script
+          async
           strategy="lazyOnload"
           src="/assets/lib/owlcarousel/owl.carousel.min.js"
         />
-
         <Script
           strategy="lazyOnload"
           src="/assets/mail/jqBootstrapValidation.min.js"
         />
         <Script strategy="lazyOnload" src="/assets/mail/contact.js" />
-
         <Script strategy="lazyOnload" src="/assets/js/main.js" />
       </body>
     </html>
