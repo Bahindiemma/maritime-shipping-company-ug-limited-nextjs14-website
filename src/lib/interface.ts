@@ -83,4 +83,32 @@ export interface Subscription {
   createdAt: string | Date; // Sanity adds this automatically for timestamps
 }
 
+export interface QuoteFormData {
+  _id?: string; // Optional ID field
+  name: string;
+  email: string;
+  company?: string;
+  whatsappNumber?: string;
+  wechat?: string;
+  commodity: string;
+  terms: string;
+  cargoReadyDate?: Date;
+  deliveryDate?: Date;
+  shipFrom: {
+    city: string;
+    country: string;
+  };
+  shipTo: {
+    city: string;
+    country: string;
+  };
+  factoryAddress?: string;
+  containerLoad: string;
+  containerType?: string;
+  containerQty?: number;
+  commodityWeight?: string;
+  serviceRequirements?: string;
+}
+
+
 

@@ -3,27 +3,57 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { client } from "@/lib/sanity";
 import Link from "next/link";
+import { sendQuote } from "../../../utils/send-email";
 
 export default function Page() {
-  const { register, handleSubmit, reset } = useForm();
+  // const { register, handleSubmit, reset } = useForm();
+  // const [submitting, setSubmitting] = useState(false);
+  // const [error, setError] = useState<string | null>(null);
+  // const [success, setSuccess] = useState(false);
+
+  // const onSubmit = async (data: any) => {
+  //   setSubmitting(true);
+  //   setError(null);
+  //   try {
+  //     // Post data to Sanity
+  //     const response = await client.create({
+  //       _type: "quote", // This should match the Sanity document type
+  //       ...data,
+  //     });
+  //     console.log("Data posted to Sanity:", response);
+  //     setSuccess(true);
+  //     reset(); // Reset form after successful submission
+  //   } catch (error: any) {
+  //     console.error("Error posting data to Sanity:", error.message);
+  //     setError("Error submitting form. Please try again later.");
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // };
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data: any) => {
     setSubmitting(true);
     setError(null);
     try {
+      // Post data to Gmail
+      await sendQuote(data);
+      
       // Post data to Sanity
       const response = await client.create({
         _type: "quote", // This should match the Sanity document type
         ...data,
       });
       console.log("Data posted to Sanity:", response);
+      
       setSuccess(true);
       reset(); // Reset form after successful submission
     } catch (error: any) {
-      console.error("Error posting data to Sanity:", error.message);
+      console.error("Error:", error.message);
       setError("Error submitting form. Please try again later.");
     } finally {
       setSubmitting(false);

@@ -1,33 +1,77 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { client } from "@/lib/sanity";
+import { sendEmail } from "../../utils/send-email";
 
-const ContactForm = () => {
-  const { register, handleSubmit, reset } = useForm();
+export type FormData = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+const ContactForm: FC = () => {
+  // const { register, handleSubmit, reset } = useForm();
+  // const [submitting, setSubmitting] = useState(false);
+  // const [error, setError] = useState<string | null>(null);
+  // const [success, setSuccess] = useState(false);
+
+  // const onSubmit = async (data: any) => {
+  //   setSubmitting(true);
+  //   setError(null);
+  //   try {
+  //     // Post data to Sanity
+  //     const response = await client.create({
+  //       _type: "contact", // This should match the Sanity document type
+  //       ...data,
+  //     });
+  //     console.log("Data posted to Sanity:", response);
+  //     setSuccess(true);
+  //     reset(); // Reset form after successful submission
+  //   } catch (error: any) {
+  //     console.error("Error posting data to Sanity:", error.message);
+  //     setError("Error submitting form. Please try again later.");
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // };
+
+  // const { register, handleSubmit } = useForm<FormData>();
+
+  // function onSubmit(data: FormData) {
+  //   sendEmail(data);
+  // }
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data: any) => {
     setSubmitting(true);
     setError(null);
     try {
+      // Post data to Gmail
+      await sendEmail(data);
+      
       // Post data to Sanity
       const response = await client.create({
         _type: "contact", // This should match the Sanity document type
         ...data,
       });
       console.log("Data posted to Sanity:", response);
+      
       setSuccess(true);
       reset(); // Reset form after successful submission
     } catch (error: any) {
-      console.error("Error posting data to Sanity:", error.message);
+      console.error("Error:", error.message);
       setError("Error submitting form. Please try again later.");
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <>
@@ -78,7 +122,7 @@ const ContactForm = () => {
           <p className="help-block text-danger" />
         </div>
         <div>
-          {error && <div className="alert alert-danger">{error}</div>}
+          {/* {error && <div className="alert alert-danger">{error}</div>} */}
           {success && (
             <div className="alert alert-success">
               Form submitted successfully!
