@@ -10,7 +10,7 @@ export default function Home() {
       {/* Header Start */}
       <div className="jumbotron jumbotron-fluid mb-5">
         <div className="container text-center py-5">
-          <h1 className="text-primary mb-4">Maritime Shipping Company</h1>
+          <h1 className="text-white mb-4">Maritime Shipping Company</h1>
           <h1 className="text-white display-3 mb-5">
             Building Trust, Delivering Results
           </h1>
