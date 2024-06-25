@@ -14,11 +14,11 @@ export default function Footer() {
                 <h3 className="text-primary mb-4">Get In Touch</h3>
                 <p>
                   <i className="fa fa-map-marker-alt mr-2" />
-                  Room 7 Ambassador House, Entrance D, Kampala Road
+                  Room 7 Ambassador House, Entrance B, Kampala Road
                 </p>
                 <p>
                   <i className="fa fa-phone-alt mr-2" />
-                  039 3254 631 | +256-787326098{" "}
+                  0393254631 | +256-787326098 | 0200906877
                 </p>
                 <p>
                   <i className="fa fa-envelope mr-2" />

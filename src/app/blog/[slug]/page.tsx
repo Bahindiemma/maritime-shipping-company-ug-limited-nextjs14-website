@@ -18,7 +18,7 @@ async function getData(slug: string) {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data: PostData = await getData(params.slug);
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <div className="flex flex-col min-h-100 justify-center items-center pt-2">
