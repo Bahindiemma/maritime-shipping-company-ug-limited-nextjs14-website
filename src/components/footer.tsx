@@ -68,8 +68,8 @@ export default function Footer() {
           <div className="col-lg-6 text-center text-md-left mb-3 mb-md-0">
             <p className="m-0 text-white">
               © 2024. All Rights Reserved. Designed by
-              <Link href="mailto:ebahindi@gmail.com" className="mx-2">
-                EMMANUEL BAHINDI | +256-773165989
+              <Link href="mailto:cotetech256@gmail.com" className="mx-2">
+                COTE TECHNOLOGIES | +256-773165989
               </Link>
             </p>
           </div>
